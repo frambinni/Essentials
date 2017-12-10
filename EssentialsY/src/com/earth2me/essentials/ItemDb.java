@@ -64,7 +64,6 @@ public class ItemDb implements IConf, net.ess3.api.IItemDb {
             Material numeric = null;
             short data = 0;
             String nbt = null;
-//TODO 10.12.17: properly adjust config loading, remove numeric support
             int col = 0;
             Matcher matcher = csvSplitPattern.matcher(line);
             while (matcher.find()) {
