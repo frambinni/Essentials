@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.ess3</groupId>
-    <artifactId>EssentialsXParent</artifactId>
+    <artifactId>EssentialsYParent</artifactId>
     <version>2.0.1</version>
 
     <packaging>pom</packaging>
@@ -17,9 +17,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:https://github.com/drtshock/Essentials.git</connection>
-        <developerConnection>scm:git:https://github.com/drtshock/Essentials.git</developerConnection>
-        <url>https://github.com/drtshock/Essentials</url>
+        <connection>scm:git:https://github.com/MiniDigger/EssentialsY.git</connection>
+        <developerConnection>scm:https://github.com/MiniDigger/EssentialsY.git</developerConnection>
+        <url>https://github.com/MiniDigger/EssentialsY</url>
     </scm>
 
     <repositories>
@@ -34,13 +34,13 @@
     </repositories>
 
     <modules>
-        <module>Essentials</module>
-        <module>EssentialsAntiBuild</module>
-        <module>EssentialsChat</module>
-        <module>EssentialsGeoIP</module>
-        <module>EssentialsProtect</module>
-        <module>EssentialsSpawn</module>
-        <module>EssentialsXMPP</module>
+        <module>EssentialsY</module>
+        <module>EssentialsYAntiBuild</module>
+        <module>EssentialsYChat</module>
+        <module>EssentialsYGeoIP</module>
+        <module>EssentialsYProtect</module>
+        <module>EssentialsYSpawn</module>
+        <module>EssentialsYXMPP</module>
         <module>nms/NMSProvider</module>
         <module>nms/UpdatedMetaProvider</module>
         <module>nms/1_8_R1Provider</module>
@@ -116,37 +116,37 @@
                     <artifactItems>
                         <artifactItem>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>EssentialsX</artifactId>
+                            <artifactId>EssentialsY</artifactId>
                             <version>${project.version}</version>
                         </artifactItem>
                         <artifactItem>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>EssentialsXAntiBuild</artifactId>
+                            <artifactId>EssentialsYAntiBuild</artifactId>
                             <version>${project.version}</version>
                         </artifactItem>
                         <artifactItem>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>EssentialsXChat</artifactId>
+                            <artifactId>EssentialsYChat</artifactId>
                             <version>${project.version}</version>
                         </artifactItem>
                         <artifactItem>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>EssentialsXGeoIP</artifactId>
+                            <artifactId>EssentialsYGeoIP</artifactId>
                             <version>${project.version}</version>
                         </artifactItem>
                         <artifactItem>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>EssentialsXProtect</artifactId>
+                            <artifactId>EssentialsYProtect</artifactId>
                             <version>${project.version}</version>
                         </artifactItem>
                         <artifactItem>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>EssentialsXSpawn</artifactId>
+                            <artifactId>EssentialsYSpawn</artifactId>
                             <version>${project.version}</version>
                         </artifactItem>
                         <artifactItem>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>EssentialsXXMPP</artifactId>
+                            <artifactId>EssentialsYXMPP</artifactId>
                             <version>${project.version}</version>
                         </artifactItem>
                     </artifactItems>
