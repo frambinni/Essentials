@@ -596,7 +596,7 @@ public class EssentialsPlayerListener implements Listener {
             case LEFT_CLICK_BLOCK:
                 if (event.getItem() != null && event.getItem().getType() != Material.AIR) {
                     final User user = ess.getUser(event.getPlayer());
-                    if (user.hasPowerTools() && user.arePowerToolsEnabled() && usePowertools(user, event.getItem().getTypeId())) {
+                    if (user.hasPowerTools() && user.arePowerToolsEnabled() && usePowertools(user, event.getItem().getType())) {
                         event.setCancelled(true);
                     }
                 }
@@ -630,7 +630,7 @@ public class EssentialsPlayerListener implements Listener {
         }
     }
 
-    private boolean usePowertools(final User user, final int id) {
+    private boolean usePowertools(final User user, final Material id) {
         final List<String> commandList = user.getPowertool(id);
         if (commandList == null || commandList.isEmpty()) {
             return false;

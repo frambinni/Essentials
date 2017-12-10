@@ -13,6 +13,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.MemoryConfiguration;
 import org.bukkit.event.EventPriority;
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import java.io.File;
@@ -555,15 +556,15 @@ public class Settings implements net.ess3.api.ISettings {
         unprotectedSigns = _getUnprotectedSign();
     }
 
-    private List<Integer> itemSpawnBl = new ArrayList<Integer>();
+    private List<Material> itemSpawnBl = new ArrayList<>();
 
     @Override
-    public List<Integer> itemSpawnBlacklist() {
+    public List<Material> itemSpawnBlacklist() {
         return itemSpawnBl;
     }
 
-    private List<Integer> _getItemSpawnBlacklist() {
-        final List<Integer> epItemSpwn = new ArrayList<Integer>();
+    private List<Material> _getItemSpawnBlacklist() {
+        final List<Material> epItemSpwn = new ArrayList<>();
         if (ess.getItemDb() == null) {
             logger.log(Level.FINE, "Aborting ItemSpawnBL read, itemDB not yet loaded.");
             return epItemSpwn;
@@ -575,7 +576,7 @@ public class Settings implements net.ess3.api.ISettings {
             }
             try {
                 final ItemStack iStack = ess.getItemDb().get(itemName);
-                epItemSpwn.add(iStack.getTypeId());
+                epItemSpwn.add(iStack.getType());
             } catch (Exception ex) {
                 logger.log(Level.SEVERE, tl("unknownItemInList", itemName, "item-spawn-blacklist"));
             }
@@ -583,7 +584,7 @@ public class Settings implements net.ess3.api.ISettings {
         return epItemSpwn;
     }
 
-    private List<EssentialsSign> enabledSigns = new ArrayList<EssentialsSign>();
+    private List<EssentialsSign> enabledSigns = new ArrayList<>();
     private boolean signsEnabled = false;
 
     @Override
@@ -663,7 +664,7 @@ public class Settings implements net.ess3.api.ISettings {
 
     // #easteregg
     @Override
-    public boolean isTradeInStacks(int id) {
+    public boolean isTradeInStacks(Material id) {
         return config.getBoolean("trade-in-stacks-" + id, false);
     }
 
@@ -685,8 +686,8 @@ public class Settings implements net.ess3.api.ISettings {
     }
 
     @Override
-    public List<Integer> getProtectList(final String configName) {
-        final List<Integer> list = new ArrayList<Integer>();
+    public List<Material> getProtectList(final String configName) {
+        final List<Material> list = new ArrayList<>();
         for (String itemName : config.getString(configName, "").split(",")) {
             itemName = itemName.trim();
             if (itemName.isEmpty()) {
@@ -695,7 +696,7 @@ public class Settings implements net.ess3.api.ISettings {
             ItemStack itemStack;
             try {
                 itemStack = ess.getItemDb().get(itemName);
-                list.add(itemStack.getTypeId());
+                list.add(itemStack.getType());
             } catch (Exception ex) {
                 logger.log(Level.SEVERE, tl("unknownItemInList", itemName, configName));
             }
