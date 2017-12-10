@@ -40,15 +40,15 @@ public class EssentialsAntiBuildListener implements Listener {
             }
             return false;
         }
-        return metaPermCheck(user, action, block.getTypeId(), block.getData());
+        return metaPermCheck(user, action, block.getType(), block.getData());
     }
 
-    private boolean metaPermCheck(final User user, final String action, final int blockId) {
+    private boolean metaPermCheck(final User user, final String action, final Material blockId) {
         final String blockPerm = "essentials.build." + action + "." + blockId;
         return user.isAuthorized(blockPerm);
     }
 
-    private boolean metaPermCheck(final User user, final String action, final int blockId, final short data) {
+    private boolean metaPermCheck(final User user, final String action, final Material blockId, final short data) {
         final String blockPerm = "essentials.build." + action + "." + blockId;
         final String dataPerm = blockPerm + ":" + data;
 
@@ -125,12 +125,12 @@ public class EssentialsAntiBuildListener implements Listener {
             final EntityType type = event.getEntity().getType();
             final boolean warn = ess.getSettings().warnOnBuildDisallow();
             if (prot.getSettingBool(AntiBuildConfig.disable_build) && !user.canBuild() && !user.isAuthorized("essentials.build")) {
-                if (type == EntityType.PAINTING && !metaPermCheck(user, "break", Material.PAINTING.getId())) {
+                if (type == EntityType.PAINTING && !metaPermCheck(user, "break", Material.PAINTING)) {
                     if (warn) {
                         user.sendMessage(tl("antiBuildBreak", Material.PAINTING.toString()));
                     }
                     event.setCancelled(true);
-                } else if (type == EntityType.ITEM_FRAME && !metaPermCheck(user, "break", Material.ITEM_FRAME.getId())) {
+                } else if (type == EntityType.ITEM_FRAME && !metaPermCheck(user, "break", Material.ITEM_FRAME)) {
                     if (warn) {
                         user.sendMessage(tl("antiBuildBreak", Material.ITEM_FRAME.toString()));
                     }
@@ -180,7 +180,7 @@ public class EssentialsAntiBuildListener implements Listener {
         }
 
         if (prot.getSettingBool(AntiBuildConfig.disable_use) && !user.canBuild() && !user.isAuthorized("essentials.build")) {
-            if (event.hasItem() && !metaPermCheck(user, "interact", item.getTypeId(), item.getDurability())) {
+            if (event.hasItem() && !metaPermCheck(user, "interact", item.getType(), item.getDurability())) {
                 event.setCancelled(true);
                 if (ess.getSettings().warnOnBuildDisallow()) {
                     user.sendMessage(tl("antiBuildUse", item.getType().toString()));
@@ -205,7 +205,7 @@ public class EssentialsAntiBuildListener implements Listener {
             final ItemStack item = event.getRecipe().getResult();
 
             if (prot.getSettingBool(AntiBuildConfig.disable_use) && !user.canBuild() && !user.isAuthorized("essentials.build")) {
-                if (!metaPermCheck(user, "craft", item.getTypeId(), item.getDurability())) {
+                if (!metaPermCheck(user, "craft", item.getType(), item.getDurability())) {
                     event.setCancelled(true);
                     if (ess.getSettings().warnOnBuildDisallow()) {
                         user.sendMessage(tl("antiBuildCraft", item.getType().toString()));
@@ -222,7 +222,7 @@ public class EssentialsAntiBuildListener implements Listener {
         final ItemStack item = event.getItem().getItemStack();
 
         if (prot.getSettingBool(AntiBuildConfig.disable_use) && !user.canBuild() && !user.isAuthorized("essentials.build")) {
-            if (!metaPermCheck(user, "pickup", item.getTypeId(), item.getDurability())) {
+            if (!metaPermCheck(user, "pickup", item.getType(), item.getDurability())) {
                 event.setCancelled(true);
                 event.getItem().setPickupDelay(50);
             }
@@ -236,7 +236,7 @@ public class EssentialsAntiBuildListener implements Listener {
         final ItemStack item = event.getItemDrop().getItemStack();
 
         if (prot.getSettingBool(AntiBuildConfig.disable_use) && !user.canBuild() && !user.isAuthorized("essentials.build")) {
-            if (!metaPermCheck(user, "drop", item.getTypeId(), item.getDurability())) {
+            if (!metaPermCheck(user, "drop", item.getType(), item.getDurability())) {
                 event.setCancelled(true);
                 user.getBase().updateInventory();
                 if (ess.getSettings().warnOnBuildDisallow()) {

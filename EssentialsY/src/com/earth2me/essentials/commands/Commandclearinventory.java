@@ -8,6 +8,7 @@ import com.earth2me.essentials.craftbukkit.InventoryWorkaround;
 import com.earth2me.essentials.utils.NumberUtil;
 import com.earth2me.essentials.utils.StringUtil;
 
+import org.bukkit.Material;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -85,6 +86,7 @@ public class Commandclearinventory extends EssentialsCommand {
         short data = -1;
         int type = -1;
         int amount = -1;
+        Material mat = null;
 
         if (args.length > (offset + 1) && NumberUtil.isInt(args[(offset + 1)])) {
             amount = Integer.parseInt(args[(offset + 1)]);
@@ -95,7 +97,8 @@ public class Commandclearinventory extends EssentialsCommand {
             } else if (!args[offset].equalsIgnoreCase("*")) {
                 final String[] split = args[offset].split(":");
                 final ItemStack item = ess.getItemDb().get(split[0]);
-                type = item.getTypeId();
+                type = 0;
+                mat = item.getType();
 
                 if (split.length > 1 && NumberUtil.isInt(split[1])) {
                     data = Short.parseShort(split[1]);
@@ -121,11 +124,11 @@ public class Commandclearinventory extends EssentialsCommand {
         } else {
             if (data == -1) // data -1 means that all subtypes will be cleared
             {
-                ItemStack stack = new ItemStack(type);
+                ItemStack stack = new ItemStack(mat);
                 if (showExtended) {
                     sender.sendMessage(tl("inventoryClearingAllStack", stack.getType().toString().toLowerCase(Locale.ENGLISH), player.getDisplayName()));
                 }
-                player.getInventory().clear(type, data);
+                player.getInventory().remove(mat);
             } else if (amount == -1) // amount -1 means all items will be cleared
             {
                 ItemStack stack = new ItemStack(type, BASE_AMOUNT, data);
