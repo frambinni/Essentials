@@ -67,7 +67,6 @@ public class EssentialsAntiBuildListener implements Listener {
     public void onBlockPlace(final BlockPlaceEvent event) {
         final User user = ess.getUser(event.getPlayer());
         final Block block = event.getBlockPlaced();
-        final int typeId = block.getTypeId();
         final Material type = block.getType();
 
         if (prot.getSettingBool(AntiBuildConfig.disable_build) && !user.canBuild() && !user.isAuthorized("essentials.build") && !metaPermCheck(user, "place", block)) {
@@ -78,7 +77,7 @@ public class EssentialsAntiBuildListener implements Listener {
             return;
         }
 
-        if (prot.checkProtectionItems(AntiBuildConfig.blacklist_placement, typeId) && !user.isAuthorized("essentials.protect.exemptplacement")) {
+        if (prot.checkProtectionItems(AntiBuildConfig.blacklist_placement, type) && !user.isAuthorized("essentials.protect.exemptplacement")) {
             if (ess.getSettings().warnOnBuildDisallow()) {
                 user.sendMessage(tl("antiBuildPlace", type.toString()));
             }
@@ -86,7 +85,7 @@ public class EssentialsAntiBuildListener implements Listener {
             return;
         }
 
-        if (prot.checkProtectionItems(AntiBuildConfig.alert_on_placement, typeId) && !user.isAuthorized("essentials.protect.alerts.notrigger")) {
+        if (prot.checkProtectionItems(AntiBuildConfig.alert_on_placement, type) && !user.isAuthorized("essentials.protect.alerts.notrigger")) {
             prot.getEssentialsConnect().alert(user, type.toString(), tl("alertPlaced"));
         }
     }
@@ -95,7 +94,6 @@ public class EssentialsAntiBuildListener implements Listener {
     public void onBlockBreak(final BlockBreakEvent event) {
         final User user = ess.getUser(event.getPlayer());
         final Block block = event.getBlock();
-        final int typeId = block.getTypeId();
         final Material type = block.getType();
 
         if (prot.getSettingBool(AntiBuildConfig.disable_build) && !user.canBuild() && !user.isAuthorized("essentials.build") && !metaPermCheck(user, "break", block)) {
@@ -106,7 +104,7 @@ public class EssentialsAntiBuildListener implements Listener {
             return;
         }
 
-        if (prot.checkProtectionItems(AntiBuildConfig.blacklist_break, typeId) && !user.isAuthorized("essentials.protect.exemptbreak")) {
+        if (prot.checkProtectionItems(AntiBuildConfig.blacklist_break, type) && !user.isAuthorized("essentials.protect.exemptbreak")) {
             if (ess.getSettings().warnOnBuildDisallow()) {
                 user.sendMessage(tl("antiBuildBreak", type.toString()));
             }
@@ -114,7 +112,7 @@ public class EssentialsAntiBuildListener implements Listener {
             return;
         }
 
-        if (prot.checkProtectionItems(AntiBuildConfig.alert_on_break, typeId) && !user.isAuthorized("essentials.protect.alerts.notrigger")) {
+        if (prot.checkProtectionItems(AntiBuildConfig.alert_on_break, type) && !user.isAuthorized("essentials.protect.alerts.notrigger")) {
             prot.getEssentialsConnect().alert(user, type.toString(), tl("alertBroke"));
         }
     }
@@ -145,7 +143,7 @@ public class EssentialsAntiBuildListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBlockPistonExtend(final BlockPistonExtendEvent event) {
         for (Block block : event.getBlocks()) {
-            if (prot.checkProtectionItems(AntiBuildConfig.blacklist_piston, block.getTypeId())) {
+            if (prot.checkProtectionItems(AntiBuildConfig.blacklist_piston, block.getType())) {
                 event.setCancelled(true);
                 return;
             }
@@ -158,7 +156,7 @@ public class EssentialsAntiBuildListener implements Listener {
             return;
         }
         final Block block = event.getBlock();
-        if (prot.checkProtectionItems(AntiBuildConfig.blacklist_piston, block.getTypeId())) {
+        if (prot.checkProtectionItems(AntiBuildConfig.blacklist_piston, block.getType())) {
             event.setCancelled(true);
         }
     }
@@ -169,7 +167,7 @@ public class EssentialsAntiBuildListener implements Listener {
         final User user = ess.getUser(event.getPlayer());
         final ItemStack item = event.getItem();
 
-        if (item != null && prot.checkProtectionItems(AntiBuildConfig.blacklist_usage, item.getTypeId()) && !user.isAuthorized("essentials.protect.exemptusage")) {
+        if (item != null && prot.checkProtectionItems(AntiBuildConfig.blacklist_usage, item.getType()) && !user.isAuthorized("essentials.protect.exemptusage")) {
             if (ess.getSettings().warnOnBuildDisallow()) {
                 user.sendMessage(tl("antiBuildUse", item.getType().toString()));
             }
@@ -177,7 +175,7 @@ public class EssentialsAntiBuildListener implements Listener {
             return;
         }
 
-        if (item != null && prot.checkProtectionItems(AntiBuildConfig.alert_on_use, item.getTypeId()) && !user.isAuthorized("essentials.protect.alerts.notrigger")) {
+        if (item != null && prot.checkProtectionItems(AntiBuildConfig.alert_on_use, item.getType()) && !user.isAuthorized("essentials.protect.alerts.notrigger")) {
             prot.getEssentialsConnect().alert(user, item.getType().toString(), tl("alertUsed"));
         }
 
@@ -251,7 +249,7 @@ public class EssentialsAntiBuildListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBlockDispense(final BlockDispenseEvent event) {
         final ItemStack item = event.getItem();
-        if (prot.checkProtectionItems(AntiBuildConfig.blacklist_dispenser, item.getTypeId())) {
+        if (prot.checkProtectionItems(AntiBuildConfig.blacklist_dispenser, item.getType())) {
             event.setCancelled(true);
         }
     }
