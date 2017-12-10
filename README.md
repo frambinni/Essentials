@@ -1,10 +1,10 @@
-![](https://i.imgur.com/CP4SZpB.png)
+# Essentials Y
 
 [![Downloads](https://i.imgur.com/MMc0PJY.png)](http://ci.ender.zone/job/EssentialsX/)
 
 **Mirror**: https://ci.akpmakes.tech/job/EssentialsX/
 
-This is a fork of Essentials called EssentialsX.
+This is a fork of EssentialsX called EssentialsY.
 
 If you are using this, do **NOT** ask Essentials for support.
 
