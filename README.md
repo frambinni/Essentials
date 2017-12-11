@@ -8,12 +8,12 @@ This is a fork of EssentialsX called EssentialsY.
 
 If you are using this, do **NOT** ask Essentials or EssentialsX for support.
 
-The official upstream repository is at https://github.com/Essentials/Essentials
+The official upstream repository is at https://github.com/drtshock/Essentials
 
 Why you should use it
 --------
 
-EssentialsY provides several performance enhancements and fixes that are currently not available in Essentials and Spigot-Essentials, most notably mob spawner support for 1.8+ servers and buy/trade sign support for 1.9+ servers. [See the wiki for details.](https://github.com/drtshock/Essentials/wiki)
+EssentialsY provides several performance enhancements and fixes that are currently not available in Essentials and Spigot-Essentials, most notably mob spawner support for 1.8+ servers and buy/trade sign support for 1.9+ servers. [See the wiki for details.](https://github.com/MiniDigger/EssentialsY/wiki)
 
 EssentialsY is almost a completely drop-in replacement for Essentials. However, it has different requirements:
 
@@ -62,10 +62,10 @@ Commits should fall into one of 3 areas:
 Other Info
 -----------------
 
-This is an unofficial fork of Essentials. It will be consistently updated and maintained with the latest Minecraft and Spigot versions.
+This is an unofficial fork of EssentialsX. It will be consistently updated and maintained with the latest Minecraft and Spigot versions.
 
 Support
 -----------------
-[Issue Tracker](https://github.com/drtshock/Essentials/issues)
+[Issue Tracker](https://github.com/MiniDigger/EssentialsY/issues)
 
-[Live Support](http://webchat.esper.net/?channels=essentialsx&prompt=1) available business hours (GMT -5)
+[Live Support](http://webchat.esper.net/?channels=essentialsy&prompt=1) available business hours (GMT +1)
