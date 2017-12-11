@@ -5,11 +5,11 @@ this makes it easier to keep track of them. These top lines won't appear when
 you create your issue, so make sure to put details at the bottom of the post.
 -->
 
-EssentialsX version (`/essentials`): 
+EssentialsY version (`/essentials`): 
 
 Server software (`/version`): 
 
-Server (logs/latest.log):
+Server logs (logs/latest.log):
 
-EssentialsX config (if applicable): 
+EssentialsY config (if applicable): 
 
