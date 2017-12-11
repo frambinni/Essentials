@@ -1,8 +1,6 @@
 # Essentials Y
 
-[![Downloads](https://i.imgur.com/MMc0PJY.png)](http://ci.ender.zone/job/EssentialsX/)
-
-**Mirror**: https://ci.akpmakes.tech/job/EssentialsX/
+[![Downloads](https://i.imgur.com/MMc0PJY.png)](http://ci.jumpy91.de/job/EssentialsY/)
 
 This is a fork of EssentialsX called EssentialsY.
 
