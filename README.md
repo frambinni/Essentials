@@ -6,29 +6,31 @@
 
 This is a fork of EssentialsX called EssentialsY.
 
-If you are using this, do **NOT** ask Essentials for support.
+If you are using this, do **NOT** ask Essentials or EssentialsX for support.
 
 The official upstream repository is at https://github.com/Essentials/Essentials
 
 Why you should use it
 --------
 
-EssentialsX provides several performance enhancements and fixes that are currently not available in Essentials and Spigot-Essentials, most notably mob spawner support for 1.8+ servers and buy/trade sign support for 1.9+ servers. [See the wiki for details.](https://github.com/drtshock/Essentials/wiki)
+EssentialsY provides several performance enhancements and fixes that are currently not available in Essentials and Spigot-Essentials, most notably mob spawner support for 1.8+ servers and buy/trade sign support for 1.9+ servers. [See the wiki for details.](https://github.com/drtshock/Essentials/wiki)
 
-EssentialsX is almost a completely drop-in replacement for Essentials. However, it has different requirements:
+EssentialsY is almost a completely drop-in replacement for Essentials. However, it has different requirements:
 
-* **EssentialsX requires [Vault](http://dev.bukkit.org/bukkit-plugins/vault/) to enable chat prefix/suffixes and group support if you have a supported permissions plugin.**
+EssentialsY will remove the block and material ids to support server versions 1.13 and above.
+
+* **EssentialsY requires [Vault](http://dev.bukkit.org/bukkit-plugins/vault/) to enable chat prefix/suffixes and group support if you have a supported permissions plugin.**
 
 * **If you have an unsupported permissions plugin but still wish to use wildcards, enable `use-bukkit-permissions` in the configuration. Otherwise, the plugin will fall back to config-based permissions.**
 
-* **EssentialsX requires Java 7 or higher.**
+* **EssentialsY requires Java 8 or higher.**
 
 * **1.7.10 is no longer supported.**
 
 Building
 --------
 
-Because EssentialsX builds against the Spigot/CraftBukkit server software for legacy support, you need to run Spigot's BuildTools for several versions in order to get it to compile.
+Because EssentialsY builds against the Spigot/CraftBukkit server software for legacy support, you need to run Spigot's BuildTools for several versions in order to get it to compile.
 
 ```
 java -jar BuildTools.jar --rev 1.8
